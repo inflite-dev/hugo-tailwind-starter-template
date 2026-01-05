@@ -1,6 +1,9 @@
 # Hugo build output
 **/public/*
 
+# Node module
+node_modules/
+
 # Editor configs
 **/.idea/*
 **/.vscode/*
