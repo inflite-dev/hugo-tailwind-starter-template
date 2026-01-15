@@ -7,6 +7,19 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
+    --spacing: 0.25rem;
+    --container-3xl: 48rem;
+    --text-sm: 0.875rem;
+    --text-sm--line-height: calc(1.25 / 0.875);
+    --text-2xl: 1.5rem;
+    --text-2xl--line-height: calc(2 / 1.5);
+    --text-3xl: 1.875rem;
+    --text-3xl--line-height: calc(2.25 / 1.875);
+    --text-4xl: 2.25rem;
+    --text-4xl--line-height: calc(2.5 / 2.25);
+    --font-weight-light: 300;
+    --font-weight-medium: 500;
+    --font-weight-bold: 700;
     --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
   }
@@ -167,6 +180,164 @@
     transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
   }
 }
+:root {
+  --color-light-bg: #FFF;
+  --color-light-text: #111;
+  --color-light-code: #111;
+  --color-light-code-bg: #DDD;
+  --color-dark-bg: #111;
+  --color-dark-text: #FFF;
+  --color-dark-code: #FFF;
+  --color-dark-code-bg: #333;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+@media (prefers-color-scheme: dark) {
+  html {
+    --background-color: var(--color-dark-bg);
+    --text-color: var(--color-dark-text);
+    --code-background-color: var(--color-dark-code-bg);
+    .color-scheme-icon-light {
+      display: none;
+    }
+    .color-scheme-icon-dark {
+      display: inline;
+    }
+    main code {
+      color: var(--color-dark-code);
+      background-color: var(--color-dark-code-bg);
+    }
+    main pre code {
+      color: var(--color-light-code);
+    }
+  }
+}
+:root:has(#color-scheme-selector-dark:checked) {
+  --background-color: var(--color-dark-bg);
+  --text-color: var(--color-dark-text);
+  --code-background-color: var(--color-dark-code-bg);
+  .color-scheme-icon-light {
+    display: none;
+  }
+  .color-scheme-icon-dark {
+    display: inline;
+  }
+  main code {
+    color: var(--color-dark-code);
+    background-color: var(--color-dark-code-bg);
+  }
+  main pre code {
+    color: var(--color-light-code);
+  }
+}
+html:has(#color-scheme-selector-light:checked) {
+  --background-color: var(--color-light-bg);
+  --text-color: var(--color-light-text);
+  --code-background-color: var(--color-light-code-bg);
+  .color-scheme-icon-light {
+    display: inline;
+  }
+  .color-scheme-icon-dark {
+    display: none;
+  }
+  main code, main pre code {
+    color: var(--color-light-code);
+    background-color: var(--color-light-code-bg);
+  }
+}
+.header {
+  width: 100%;
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+#color-scheme-selector {
+  display: inline-flex;
+}
+.color-scheme-option, #color-scheme-selector-separator {
+  padding: calc(var(--spacing) * 0.5);
+  cursor: pointer;
+}
+.color-scheme-option input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border-width: 0;
+}
+@layer base {
+  a:hover {
+    text-decoration-line: underline;
+  }
+  header {
+    padding-top: calc(var(--spacing) * 8);
+    #header-site-title {
+      padding-top: calc(var(--spacing) * 2);
+      padding-bottom: calc(var(--spacing) * 2);
+      font-size: var(--text-4xl);
+      line-height: var(--tw-leading, var(--text-4xl--line-height));
+      --tw-font-weight: var(--font-weight-bold);
+      font-weight: var(--font-weight-bold);
+    }
+  }
+  nav {
+    padding-top: calc(var(--spacing) * 4);
+    padding-bottom: calc(var(--spacing) * 2);
+  }
+  .breadcrumbs {
+    padding-top: calc(var(--spacing) * 8);
+    padding-bottom: calc(var(--spacing) * 2);
+    font-size: var(--text-sm);
+    line-height: var(--tw-leading, var(--text-sm--line-height));
+    --tw-font-weight: var(--font-weight-light);
+    font-weight: var(--font-weight-light);
+  }
+  main {
+    h1, h2, h3, h4, h5, h6 {
+      padding-top: calc(var(--spacing) * 4);
+      padding-bottom: calc(var(--spacing) * 2);
+      --tw-font-weight: var(--font-weight-medium);
+      font-weight: var(--font-weight-medium);
+    }
+    p {
+      padding-top: calc(var(--spacing) * 4);
+      padding-bottom: calc(var(--spacing) * 2);
+    }
+  }
+  h1 {
+    font-size: var(--text-4xl);
+    line-height: var(--tw-leading, var(--text-4xl--line-height));
+  }
+  h2 {
+    font-size: var(--text-3xl);
+    line-height: var(--tw-leading, var(--text-3xl--line-height));
+  }
+  h3 {
+    font-size: var(--text-2xl);
+    line-height: var(--tw-leading, var(--text-2xl--line-height));
+  }
+  body {
+    max-width: var(--container-3xl);
+    margin: auto;
+    padding-inline: calc(var(--spacing) * 8);
+  }
+  nav {
+    display: inline-flex;
+    flex-wrap: wrap;
+  }
+  .nav-item {
+    display: inline-flex;
+    margin: 0 1rem 0 0;
+  }
+  main p, main blockquote, main pre {
+    overflow: auto;
+  }
+}
 @property --tw-rotate-x {
   syntax: "*";
   inherits: false;
@@ -187,6 +358,10 @@
   syntax: "*";
   inherits: false;
 }
+@property --tw-font-weight {
+  syntax: "*";
+  inherits: false;
+}
 @layer properties {
   @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
     *, ::before, ::after, ::backdrop {
@@ -195,6 +370,7 @@
       --tw-rotate-z: initial;
       --tw-skew-x: initial;
       --tw-skew-y: initial;
+      --tw-font-weight: initial;
     }
   }
 }

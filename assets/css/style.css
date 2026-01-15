@@ -1,1 +1,197 @@
 @import "tailwindcss";
+
+:root {
+    /* Theme color definitions */
+    --color-light-bg: #FFF;
+    --color-light-text: #111;
+    --color-light-code: #111;
+    --color-light-code-bg: #DDD;
+    --color-dark-bg: #111;
+    --color-dark-text: #FFF;
+    --color-dark-code: #FFF;
+    --color-dark-code-bg: #333;
+
+    /* Apply variables from custom utilities */
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+@utility color-scheme-light {
+    --background-color: var(--color-light-bg);
+    --text-color: var(--color-light-text);
+    --code-background-color: var(--color-light-code-bg);
+
+    .color-scheme-icon-light {
+        display: inline;
+    }
+
+    .color-scheme-icon-dark {
+        display: none;
+    }
+
+    main code, main pre code {
+        color: var(--color-light-code);
+        background-color: var(--color-light-code-bg);
+    }
+}
+
+@utility color-scheme-dark {
+    --background-color: var(--color-dark-bg);
+    --text-color: var(--color-dark-text);
+    --code-background-color: var(--color-dark-code-bg);
+
+    .color-scheme-icon-light {
+        display: none;
+    }
+
+    .color-scheme-icon-dark {
+        display: inline;
+    }
+
+    main code {
+        color: var(--color-dark-code);
+        background-color: var(--color-dark-code-bg);
+    }
+
+    main pre code {
+        /* For now, code highlight theme applied to pre tags
+        is still light regardless of color scheme selection;
+        Ensure text color not set by theme still contrasts light background. */
+        color: var(--color-light-code);
+    }
+}
+
+/*
+Auto mode - Dark when system prefers dark.
+This media query is evaluated continuously.
+
+The html:has selectors for color scheme may not evaluate on page load.
+Here we apply the system theme by default if :has selectors fail initially,
+and allow the specificity of the :has selectors for (light|dark):checked to override it.
+
+This implicitly takes effect again when the light & dark inputs are not checked,
+as the :has selectors for (light|dark):checked will be false.
+*/
+@media (prefers-color-scheme: dark) {
+    html {
+        @apply color-scheme-dark;
+    }
+}
+
+/*
+Manual overrides take precedence due to selector specificity
+*/
+:root:has(#color-scheme-selector-dark:checked) {
+    @apply color-scheme-dark;
+}
+
+/*
+Manual overrides take precedence due to selector specificity
+*/
+html:has(#color-scheme-selector-light:checked) {
+    @apply color-scheme-light;
+}
+
+/**/
+/*Begin color scheme selector layout section */
+/**/
+.header {
+    @apply w-full;
+    @apply inline-flex;
+    @apply flex-wrap;
+    @apply items-center justify-between;
+}
+
+#color-scheme-selector {
+    @apply inline-flex;
+}
+
+.color-scheme-option, #color-scheme-selector-separator {
+    @apply p-0.5;
+    @apply cursor-pointer;
+}
+
+/* Hide radio inputs but keep them accessible */
+.color-scheme-option input {
+    @apply sr-only;
+}
+/**/
+/* End color scheme selector layout section */
+/**/
+
+/**/
+/* Base styles */
+/**/
+@layer base {
+
+    a:hover {
+        @apply underline;
+    }
+
+    header {
+        @apply pt-8;
+
+        #header-site-title {
+            @apply pt-2 pb-2;
+            @apply text-4xl;
+            @apply font-bold;
+        }
+    }
+
+    nav {
+        @apply pt-4 pb-2;
+    }
+
+    .breadcrumbs {
+        @apply pt-8 pb-2;
+        @apply text-sm;
+        @apply font-light;
+    }
+
+    main {
+        h1, h2, h3, h4, h5, h6{
+            @apply pt-4;
+            @apply pb-2;
+            @apply font-medium;
+        }
+
+        p {
+            @apply pt-4;
+            @apply pb-2;
+        }
+    }
+
+
+    h1 {
+        @apply text-4xl;
+    }
+
+    h2 {
+        @apply text-3xl;
+    }
+
+    h3 {
+        @apply text-2xl;
+    }
+
+    body {
+        @apply max-w-3xl;
+        @apply m-auto;
+        @apply px-8;
+    }
+
+    nav {
+        @apply inline-flex;
+        @apply flex-wrap;
+        /*margin: 1rem 0;*/
+    }
+
+    .nav-item {
+        @apply inline-flex;
+        margin: 0 1rem 0 0;
+    }
+
+    main p, main blockquote, main pre  {
+        @apply overflow-auto;
+    }
+}
