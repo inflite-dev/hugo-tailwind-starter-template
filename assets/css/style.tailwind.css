@@ -1,4 +1,5 @@
 /*! tailwindcss v4.1.18 | MIT License | https://tailwindcss.com */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap');
 @layer properties;
 @layer theme, base, components, utilities;
 @layer theme {
@@ -11,6 +12,8 @@
     --container-3xl: 48rem;
     --text-sm: 0.875rem;
     --text-sm--line-height: calc(1.25 / 0.875);
+    --text-xl: 1.25rem;
+    --text-xl--line-height: calc(1.75 / 1.25);
     --text-2xl: 1.5rem;
     --text-2xl--line-height: calc(2 / 1.5);
     --text-3xl: 1.875rem;
@@ -281,6 +284,7 @@ html:has(#color-scheme-selector-light:checked) {
       padding-bottom: calc(var(--spacing) * 2);
       font-size: var(--text-4xl);
       line-height: var(--tw-leading, var(--text-4xl--line-height));
+      font-family: 'Open Sans', var(--font-sans);
       --tw-font-weight: var(--font-weight-bold);
       font-weight: var(--font-weight-bold);
     }
@@ -298,28 +302,33 @@ html:has(#color-scheme-selector-light:checked) {
     font-weight: var(--font-weight-light);
   }
   main {
-    h1, h2, h3, h4, h5, h6 {
+    h1, h2, h3, h4, h5, h6, .page-description {
       padding-top: calc(var(--spacing) * 4);
       padding-bottom: calc(var(--spacing) * 2);
+      font-family: 'Open Sans', var(--font-sans);
       --tw-font-weight: var(--font-weight-medium);
       font-weight: var(--font-weight-medium);
+    }
+    h1 {
+      font-size: var(--text-4xl);
+      line-height: var(--tw-leading, var(--text-4xl--line-height));
+    }
+    h2 {
+      font-size: var(--text-3xl);
+      line-height: var(--tw-leading, var(--text-3xl--line-height));
+    }
+    h3 {
+      font-size: var(--text-2xl);
+      line-height: var(--tw-leading, var(--text-2xl--line-height));
+    }
+    .page-description {
+      font-size: var(--text-xl);
+      line-height: var(--tw-leading, var(--text-xl--line-height));
     }
     p {
       padding-top: calc(var(--spacing) * 4);
       padding-bottom: calc(var(--spacing) * 2);
     }
-  }
-  h1 {
-    font-size: var(--text-4xl);
-    line-height: var(--tw-leading, var(--text-4xl--line-height));
-  }
-  h2 {
-    font-size: var(--text-3xl);
-    line-height: var(--tw-leading, var(--text-3xl--line-height));
-  }
-  h3 {
-    font-size: var(--text-2xl);
-    line-height: var(--tw-leading, var(--text-2xl--line-height));
   }
   body {
     max-width: var(--container-3xl);
