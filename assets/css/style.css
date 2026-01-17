@@ -163,44 +163,41 @@ html:has(#color-scheme-selector-light:checked) {
         @apply font-light;
     }
 
-    main {
-        h1, h2, h3, h4, h5, h6 {
-            @apply pt-4;
-            @apply pb-2;
-            font-family: 'Inter', var(--font-sans);
-            @apply font-semibold;
-        }
-
-        h1 {
-            @apply text-4xl;
-        }
-
-        h2 {
-            @apply text-3xl;
-        }
-
-        h3 {
-            @apply text-2xl;
-        }
-
-        .page-description {
-            @apply pt-4 pb-2;
-            @apply text-2xl;
-            font-family: 'Inter', var(--font-sans);
-            @apply font-semibold;
-        }
-
-        .page-header-date, .terms {
-            @apply pt-2 pb-2;
-        }
-
-        p {
-            @apply pt-2;
-            @apply pb-1;
-        }
+    h1, h2, h3, h4, h5, h6 {
+        @apply pt-4;
+        @apply pb-2;
+        font-family: 'Inter', var(--font-sans);
+        @apply font-semibold;
     }
 
+    h1 {
+        @apply text-4xl;
+    }
 
+    h2 {
+        @apply text-3xl;
+    }
+
+    h3 {
+        @apply text-2xl;
+    }
+
+    /**/
+    /* Single page header section */
+    /**/
+    .page-description {
+        @apply pt-4 pb-2;
+        @apply text-2xl;
+        font-family: 'Inter', var(--font-sans);
+        @apply font-semibold;
+    }
+
+    .page-header-date, .terms {
+        @apply pt-2 pb-2;
+    }
+    /**/
+    /* End single page header section */
+    /**/
 
 
     body {
@@ -209,21 +206,36 @@ html:has(#color-scheme-selector-light:checked) {
         @apply px-8;
     }
 
+    p {
+        @apply pt-2;
+        @apply pb-1;
+    }
 
-
-    main p, main blockquote, main pre  {
+    p, blockquote, pre {
         @apply overflow-auto;
     }
 
-    main pre {
+    pre {
         @apply mb-4;
         @apply p-4;
         /*@apply whitespace-pre-wrap;*/
         @apply text-sm;
     }
 
-    main code, main pre {
+    code, pre {
         font-family: monospace;
         @apply text-sm;
     }
+
+    ul {
+        @apply px-8;
+        @apply pb-4;
+        @apply list-disc;
+    }
+    ul h1, ul h2, ul h3, ul h4, ul h5, ul h6 {
+        @apply pt-2 pb-1;
+    }
 }
+/**/
+/* End base styles */
+/**/
