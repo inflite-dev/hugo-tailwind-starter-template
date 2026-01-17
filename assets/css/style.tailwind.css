@@ -288,8 +288,14 @@ html:has(#color-scheme-selector-light:checked) {
     }
   }
   nav {
+    display: inline-flex;
+    flex-wrap: wrap;
     padding-top: calc(var(--spacing) * 4);
     padding-bottom: calc(var(--spacing) * 2);
+  }
+  .nav-item {
+    display: inline-flex;
+    padding-right: calc(var(--spacing) * 4);
   }
   .breadcrumbs {
     padding-top: calc(var(--spacing) * 8);
@@ -344,14 +350,6 @@ html:has(#color-scheme-selector-light:checked) {
     max-width: var(--container-3xl);
     margin: auto;
     padding-inline: calc(var(--spacing) * 8);
-  }
-  nav {
-    display: inline-flex;
-    flex-wrap: wrap;
-  }
-  .nav-item {
-    display: inline-flex;
-    margin: 0 1rem 0 0;
   }
   main p, main blockquote, main pre {
     overflow: auto;
