@@ -16,7 +16,7 @@ Renders a list of direction child Sections, then RegularPages for a Hugo section
       </div>
       <ul>
           {{- range sort $page.Sections ".Params.weight" }}
-            <li>{{ partial "pages-list-item.html" (dict "page" . "titleElement" "h3" "descElement" "h4") }}</li>
+            <li>{{ partial "page-header-simple.html" (dict "page" . "titleElement" "h3" "descElement" "h4") }}</li>
           {{- end }}
       </ul>
     </div>
@@ -29,7 +29,7 @@ Renders a list of direction child Sections, then RegularPages for a Hugo section
       </div>
       <ul>
           {{- range sort $page.RegularPages ".Params.weight" }}
-            <li>{{ partial "pages-list-item.html" (dict "page" . "titleElement" "h3" "descElement" "h4") }}</li>
+            <li>{{ partial "page-header-simple.html" (dict "page" . "titleElement" "h3" "descElement" "h4") }}</li>
           {{- end }}
       </ul>
     </div>

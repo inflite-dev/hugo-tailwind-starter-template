@@ -154,7 +154,6 @@ html:has(#color-scheme-selector-light:checked) {
 
     .breadcrumbs {
         @apply pt-8 pb-2;
-
     }
 
     .breadcrumbs-separator, .breadcrumbs-item {
@@ -181,6 +180,21 @@ html:has(#color-scheme-selector-light:checked) {
     h3 {
         @apply text-2xl;
     }
+
+    /**/
+    /* Home page header section */
+    /**/
+    .home-page-header {
+        /*
+        Home page does not have have breadcrumbs & the associated padding;
+        add padding to create separation from header/nav area.
+        */
+        @apply pt-4;
+    }
+
+    /**/
+    /* End home page header section */
+    /**/
 
     /**/
     /* Single page header section */

@@ -327,6 +327,9 @@ html:has(#color-scheme-selector-light:checked) {
     font-size: var(--text-2xl);
     line-height: var(--tw-leading, var(--text-2xl--line-height));
   }
+  .home-page-header {
+    padding-top: calc(var(--spacing) * 4);
+  }
   .page-description {
     padding-top: calc(var(--spacing) * 4);
     padding-bottom: calc(var(--spacing) * 2);
