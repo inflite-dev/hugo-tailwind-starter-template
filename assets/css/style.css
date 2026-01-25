@@ -126,40 +126,10 @@ html:has(#color-scheme-selector-light:checked) {
 /**/
 @layer base {
 
-    a:hover {
-        @apply underline;
-    }
-
-    header {
-        @apply pt-4;
-
-        #header-site-title {
-            @apply pt-4 pb-4;
-            @apply text-4xl;
-            font-family: 'Inter', var(--font-sans);
-            @apply font-bold;
-        }
-    }
-
-    nav {
-        @apply inline-flex;
-        @apply flex-wrap;
-        @apply pt-4 pb-2;
-    }
-
-    .nav-item {
-        @apply inline-flex;
-        @apply pr-4;
-    }
-
-    .breadcrumbs {
-        @apply pt-8 pb-2;
-    }
-
-    .breadcrumbs-separator, .breadcrumbs-item {
-        @apply text-sm;
-        font-family: 'Inter', var(--font-sans);
-        @apply font-light;
+    body {
+        @apply max-w-3xl;
+        @apply m-auto;
+        @apply px-8;
     }
 
     h1, h2, h3, h4, h5, h6 {
@@ -181,43 +151,8 @@ html:has(#color-scheme-selector-light:checked) {
         @apply text-2xl;
     }
 
-    /**/
-    /* Home page header section */
-    /**/
-    .home-page-header {
-        /*
-        Home page does not have have breadcrumbs & the associated padding;
-        add padding to create separation from header/nav area.
-        */
-        @apply pt-4;
-    }
-
-    /**/
-    /* End home page header section */
-    /**/
-
-    /**/
-    /* Single page header section */
-    /**/
-    .page-description {
-        @apply pt-4 pb-2;
-        @apply text-2xl;
-        font-family: 'Inter', var(--font-sans);
-        @apply font-semibold;
-    }
-
-    .page-header-date, .terms {
-        @apply pt-2 pb-2;
-    }
-    /**/
-    /* End single page header section */
-    /**/
-
-
-    body {
-        @apply max-w-3xl;
-        @apply m-auto;
-        @apply px-8;
+    a:hover {
+        @apply underline;
     }
 
     p {
@@ -260,6 +195,169 @@ html:has(#color-scheme-selector-light:checked) {
     ol ol {
         @apply list-[lower-roman];
     }
+
+    /**/
+    /* Top header section (above nav bar) */
+    /**/
+    header {
+        @apply pt-4;
+
+        #header-site-title {
+            @apply pt-4 pb-4;
+            @apply text-4xl;
+            font-family: 'Inter', var(--font-sans);
+            @apply font-bold;
+        }
+    }
+    /**/
+    /* End top header section (above nav bar) */
+    /**/
+
+    /**/
+    /* Nav bar section */
+    /**/
+    nav {
+        @apply inline-flex;
+        @apply flex-wrap;
+        @apply pt-4 pb-2;
+    }
+
+    .nav-item {
+        @apply inline-flex;
+        @apply pr-4;
+    }
+
+    .nav-hr-bottom {
+        @apply block;
+        /*@apply mt-4 mb-2;*/
+        @apply border-gray-400;
+    }
+    /**/
+    /* End nav bar section */
+    /**/
+
+    /**/
+    /* Breadcrumbs section */
+    /**/
+    .breadcrumbs {
+        @apply pt-8 pb-2;
+    }
+
+    .breadcrumbs-separator, .breadcrumbs-item {
+        @apply text-sm;
+        font-family: 'Inter', var(--font-sans);
+        @apply font-light;
+    }
+    /**/
+    /* End breadcrumbs section */
+    /**/
+
+    /**/
+    /* Home page header section */
+    /**/
+    .home-page-header {
+        /*
+        Home page does not have have breadcrumbs & the associated padding;
+        add padding to create separation from header/nav area.
+        */
+        @apply pt-4;
+    }
+    /**/
+    /* End home page header section */
+    /**/
+
+    /**/
+    /* Single page header section */
+    /**/
+    .page-description {
+        @apply pt-4 pb-2;
+        @apply text-2xl;
+        font-family: 'Inter', var(--font-sans);
+        @apply font-semibold;
+    }
+
+    .page-header-author {
+        @apply pt-1 pb-0;
+        @apply text-sm;
+        @apply font-semibold;
+    }
+
+    .page-header-date {
+        @apply pt-1 pb-0;
+        @apply text-sm;
+    }
+    .page-header-hr-bottom {
+        @apply mt-4 mb-2;
+        @apply border-gray-400;
+    }
+
+    .terms {
+
+        @apply pt-2 pb-1;
+        @apply text-sm;
+    }
+    .terms-item {
+        /*@apply bg-gray-100; TODO respect color scheme*/
+        @apply p-1;
+    }
+    /**/
+    /* End single page header section */
+    /**/
+
+    /**/
+    /* Single page pagination section (next/prev) */
+    /**/
+    .pagination-single {
+        @apply flex;
+        @apply justify-between;
+
+        /*@apply mt-2;*/
+        @apply pt-4 pb-4;
+
+        @apply text-xs;
+        @apply font-light;
+    }
+    .pagination-single-item {
+        @apply basis-4/10;
+
+        white-space: nowrap;
+        overflow: hidden;
+        @apply text-wrap;
+    }
+    .pagination-single-item-prev {
+        /*@apply pr-8;*/
+    }
+    .pagination-single-item-next {
+        /*@apply pl-8;*/
+    }
+    .pagination-single-item-keyword {
+        @apply font-semibold;
+    }
+    .pagination-single-item-name {
+        text-overflow: ellipsis;
+    }
+    .pagination-single-hr-bottom {
+        @apply border-gray-400;
+    }
+    /**/
+    /* End single page pagination section (next/prev) */
+    /**/
+
+    /**/
+    /* Single page content section */
+    /**/
+    /*.page-content {*/
+    /*    @apply pt-4;*/
+    /*}*/
+    /*.page-content-hr-bottom {*/
+    /*    @apply mt-4 mb-2;*/
+    /*    @apply border-gray-400;*/
+    /*}*/
+    /**/
+    /* End single page content section */
+    /**/
+
+
 }
 /**/
 /* End base styles */

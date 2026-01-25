@@ -14,7 +14,7 @@ For a given taxonomy, renders a list of terms assigned to the page.
     {{- $label := (index . 0).Parent.LinkTitle }} <!-- Extract taxonomy name: /tags/markdown -> Tags -->
     <div class="terms">
       <div class="terms-items">
-        <span class="terms-taxonomy">{{ $label }}:</span>
+{{/*        <span class="terms-taxonomy">{{ $label }}:</span>*/}}
           {{- range . }}
             <span class="terms-item"><a href="{{ .RelPermalink }}">#{{ .LinkTitle }}</a></span>
           {{- end }}
