@@ -137,6 +137,12 @@ html:has(#color-scheme-selector-light:checked) {
         @apply pb-2;
         font-family: 'Inter', var(--font-sans);
         @apply font-semibold;
+
+        code, pre {
+            font-size: inherit;
+            /* Specificity overrides later directives
+            to make code/pre font smaller */
+        }
     }
 
     h1 {

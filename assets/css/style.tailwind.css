@@ -291,6 +291,9 @@ html:has(#color-scheme-selector-light:checked) {
     font-family: 'Inter', var(--font-sans);
     --tw-font-weight: var(--font-weight-semibold);
     font-weight: var(--font-weight-semibold);
+    code, pre {
+      font-size: inherit;
+    }
   }
   h1 {
     font-size: var(--text-4xl);
